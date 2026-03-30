@@ -1,0 +1,13 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[remote "hf"]
+	url = https://huggingface.co/spaces/Ersn/DunyaRaporu-AI-Backend
+	fetch = +refs/heads/*:refs/remotes/hf/*
+[branch "main"]
+	remote = hf
+	merge = refs/heads/main
