@@ -16,6 +16,9 @@ env/
 .pub-cache/
 .pub/
 build/
+.firebase/
+**/*.dart.js
+**/*.js.map
 
 # IDEs
 .vscode/
