@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'screens/dashboard.dart';
 import 'screens/login_screen.dart';
 import 'services/auth_service.dart';
@@ -8,6 +9,13 @@ import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
+  // .env dosyasını yükle
+  try {
+    await dotenv.load(fileName: ".env");
+  } catch (e) {
+    print(".env yüklenemedi: $e");
+  }
   
   // Firebase'i başlat (Web için konfigürasyon firebase_options.dart'tan alınır)
   try {

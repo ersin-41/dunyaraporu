@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart' show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
@@ -11,13 +12,13 @@ class DefaultFirebaseOptions {
     );
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDokgAFh1y_yo2pQgSbOmUxgaN7M5R1bpo',
-    authDomain: 'gen-lang-client-0466665567.firebaseapp.com',
-    projectId: 'gen-lang-client-0466665567',
-    storageBucket: 'gen-lang-client-0466665567.firebasestorage.app',
-    messagingSenderId: '193644652009',
-    appId: '1:193644652009:web:aafba7d276d4de869c9778',
-    measurementId: 'G-EEH38V59C5',
+  static FirebaseOptions get web => FirebaseOptions(
+    apiKey: dotenv.get('FIREBASE_API_KEY', fallback: ''),
+    authDomain: dotenv.get('FIREBASE_AUTH_DOMAIN', fallback: ''),
+    projectId: dotenv.get('FIREBASE_PROJECT_ID', fallback: ''),
+    storageBucket: dotenv.get('FIREBASE_STORAGE_BUCKET', fallback: ''),
+    messagingSenderId: dotenv.get('FIREBASE_MESSAGING_SENDER_ID', fallback: ''),
+    appId: dotenv.get('FIREBASE_APP_ID', fallback: ''),
+    measurementId: dotenv.get('FIREBASE_MEASUREMENT_ID', fallback: ''),
   );
 }
